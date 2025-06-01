@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rayman Development</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <style>
+    :root {
+      --black: #000;
+      --white: #fff;
+      --gray: #444;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--white);
+      color: var(--black);
+      scroll-behavior: smooth;
+    }
+
+    header {
+      background: var(--white);
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid #eee;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    nav {
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--black);
+      font-weight: 500;
+      position: relative;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      background: var(--black);
+      bottom: -4px;
+      left: 0;
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    .burger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+    }
+
+    .burger div {
+      width: 25px;
+      height: 3px;
+      background: var(--black);
+    }
+
+    .mobile-nav {
+      display: none;
+      flex-direction: column;
+      gap: 1rem;
+      padding: 1rem 2rem;
+      background: var(--white);
+      border-top: 1px solid #eee;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      padding: 4rem 2rem;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      color: var(--gray);
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    .button {
+      padding: 1rem 2.5rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      background: var(--black);
+      color: var(--white);
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .button:hover {
+      transform: scale(1.05);
+      background: #111;
+    }
+
+    .section {
+      padding: 6rem 2rem;
+      background-color: var(--white);
+      text-align: center;
+    }
+
+    .section h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+
+    .section p {
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: 0 auto;
+      color: var(--gray);
+      line-height: 1.8;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background-color: var(--white);
+      color: #666;
+      border-top: 1px solid #eee;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+      }
+
+      .burger {
+        display: flex;
+      }
+
+      .mobile-nav {
+        display: none;
+      }
+
+      .hero h1 {
+        font-size: 2.4rem;
+      }
+
+      .section h2 {
+        font-size: 2rem;
+      }
+
+      .button {
+        font-size: 1rem;
+        padding: 0.9rem 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header data-aos="fade-down">
+    <div class="logo">Rayman Development</div>
+    <nav class="desktop-nav">
+      <a href="#">Start</a>
+      <a href="#info">Info</a>
+      <a href="#bezahlung">Bezahlung</a>
+      <a href="mailto:ssfqrwhb@gmail.com">Kontakt</a>
+    </nav>
+    <div class="burger" onclick="toggleMenu()">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </header>
+
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#">Start</a>
+    <a href="#info">Info</a>
+    <a href="#bezahlung">Bezahlung</a>
+    <a href="mailto:ssfqrwhb@gmail.com">Kontakt</a>
+  </div>
+
+  <section class="hero" data-aos="zoom-in">
+    <h1>Elegantes Webdesign in Schwarz & Weiß</h1>
+    <p>
+      Rayman Development steht für moderne, visuell beeindruckende Webseiten – stilvoll, technisch stark und perfekt auf allen Geräten. Lassen Sie uns Ihre digitale Vision Wirklichkeit werden.
+    </p>
+    <a href="mailto:ssfqrwhb@gmail.com" class="button">Projekt starten</a>
+  </section>
+
+  <section class="section" id="info" data-aos="fade-up">
+    <h2>Jetzt unverbindlich anfragen</h2>
+    <p>
+      Senden Sie Ihre Anfrage per E-Mail an <strong>ssfqrwhb@gmail.com</strong>. <br><br>
+      Wir garantieren Ihnen eine Rückmeldung <strong>innerhalb von 24 Stunden</strong>. <br>
+      Die Preise richten sich nach Ihrem Projekt und werden <strong>nach Absprache</strong> individuell festgelegt. <br><br>
+      Ob One-Pager, Firmenauftritt, Portfolio oder Webshop – wir liefern Qualität mit Stil.
+    </p>
+  </section>
+
+  <section class="section" id="bezahlung" data-aos="fade-up">
+    <h2>Bezahlung & Projektabwicklung</h2>
+    <p>
+      Die Abrechnung erfolgt transparent und fair – ganz nach dem Umfang und Anspruch Ihres Projekts. Nach einem kostenlosen Erstgespräch erhalten Sie ein individuelles Angebot. <br><br>
+      Die Bezahlung erfolgt in der Regel in zwei Schritten: Eine Anzahlung zu Projektbeginn und der Rest nach Fertigstellung. <br><br>
+      Für größere Projekte oder langfristige Kooperationen bieten wir auch monatliche Zahlungspläne. Vertrauen, Qualität und faire Konditionen stehen bei uns im Mittelpunkt.
+    </p>
+  </section>
+
+  <footer data-aos="fade-up">
+    &copy; 2025 Rayman Development – Stilvolle Weblösungen in Schwarz & Weiß.
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true
+    });
+
+    function toggleMenu() {
+      const nav = document.getElementById('mobileNav');
+      nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+    }
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
